@@ -1,0 +1,381 @@
+Leadership Challenge 21 Days
+1. Project Overview
+Project Name
+
+Leadership Challenge 21 Days
+
+Purpose
+
+Xây dựng một ứng dụng dạng PWA (Progressive Web App) hỗ trợ học viên sau workshop lãnh đạo thực hiện chương trình thử thách 21 ngày nhằm hình thành thói quen lãnh đạo bản thân.
+
+Ứng dụng tập trung vào:
+
+Daily Challenge
+Daily Check-in
+Reflection
+Progress Tracking
+Push Notification
+
+Không tập trung vào gamification phức tạp trong giai đoạn đầu.
+
+2. Business Goal
+
+Sau workshop:
+
+Người học thường:
+
+Hào hứng trong 1–3 ngày đầu
+Giảm động lực sau 1 tuần
+Không duy trì hành vi mới
+
+Chương trình 21 ngày giúp:
+
+Duy trì cam kết
+Tạo hành vi mới
+Hình thành thói quen lãnh đạo bản thân
+Theo dõi tiến độ phát triển
+3. Target Users
+Primary Users
+
+Học viên tham gia chương trình lãnh đạo.
+
+Độ tuổi:
+
+22–45
+
+Đối tượng:
+
+Nhân viên
+Chuyên viên
+Tổ trưởng
+Quản lý cấp trung
+4. Technology Stack
+Frontend
+React
+Next.js
+UI
+Tailwind CSS
+Backend
+
+Hiện tại:
+
+Google Sheet
+Middleware
+Google Apps Script
+Deployment
+Vercel
+Notification
+
+Giai đoạn 1:
+
+Email Notification
+
+Giai đoạn 2:
+
+Push Notification (PWA)
+5. MVP Scope
+Must Have
+Dashboard
+
+Hiển thị:
+
+Ngày hiện tại
+Challenge hôm nay
+Tiến độ hoàn thành
+Daily Challenge
+
+Mỗi ngày:
+
+1 thử thách
+Mô tả
+Hướng dẫn thực hiện
+Daily Check-in
+
+Người học xác nhận:
+
+□ Đã hoàn thành
+
+hoặc
+
+□ Chưa hoàn thành
+
+Reflection
+
+Trả lời:
+
+Tôi học được gì hôm nay?
+Điều gì làm tôi tự hào?
+Ngày mai tôi muốn cải thiện điều gì?
+Progress Tracking
+
+Hiển thị:
+
+Day 1 → Day 21
+Trạng thái hoàn thành
+Notification
+
+Nhắc:
+
+Challenge mới
+Chưa check-in
+Hoàn thành mốc
+6. Features NOT Included
+
+Không triển khai ở MVP:
+
+❌ Leaderboard
+
+❌ Ranking
+
+❌ Điểm thưởng
+
+❌ Huy hiệu phức tạp
+
+❌ Looker Studio
+
+❌ Social Feed
+
+❌ Chat
+
+❌ Workshop Evaluation trước Challenge
+
+7. User Journey
+Step 1
+
+Workshop Leadership
+
+↓
+
+Step 2
+
+Nhận email mời tham gia
+
+↓
+
+Step 3
+
+Đăng nhập
+
+↓
+
+Step 4
+
+Bắt đầu Day 1
+
+↓
+
+Step 5
+
+Hoàn thành Challenge
+
+↓
+
+Step 6
+
+Check-in
+
+↓
+
+Step 7
+
+Reflection
+
+↓
+
+Step 8
+
+Nhận Challenge ngày tiếp theo
+
+↓
+
+Step 9
+
+Hoàn thành Day 21
+
+↓
+
+Step 10
+
+Nhận Certificate
+
+8. Application Structure
+Bottom Navigation
+Home
+
+Dashboard
+
+Challenge
+
+Danh sách 21 ngày
+
+Reflection
+
+Nhật ký
+
+Learning
+
+Tài liệu
+
+Profile
+
+Thông tin cá nhân
+
+9. Home Screen
+Components
+Progress Card
+
+Ví dụ:
+
+Bạn đang ở Ngày 7 / 21
+
+███████░░░░░░░░░░
+33%
+Today's Challenge
+Ngày 7
+
+Lắng nghe chủ động
+
+Dành 15 phút lắng nghe đồng nghiệp
+mà không ngắt lời.
+Check-in
+○ Chưa hoàn thành
+
+● Đã hoàn thành
+Reflection Shortcut
+Viết cảm nhận hôm nay
+10. Database Design
+Sheet: Users
+Field
+UserID
+FullName
+Email
+Department
+Batch
+StartDate
+Status
+Sheet: Challenge_Master
+Field
+Day
+Title
+Description
+LearningObjective
+
+Ví dụ:
+
+Day	Title
+1	Nhận diện bản thân
+2	Chủ động
+3	Cam kết
+...	...
+21	Kế hoạch 90 ngày
+Sheet: User_Progress
+Field
+UserID
+Day
+Completed
+CheckinDate
+Sheet: Reflection
+Field
+UserID
+Day
+ReflectionText
+CreatedDate
+Sheet: Notification_Log
+Field
+UserID
+NotificationType
+SendDate
+Status
+11. Notification Logic
+07:00 AM
+Chào bạn,
+
+Hôm nay là Ngày 8.
+
+Thử thách hôm nay:
+Lắng nghe chủ động.
+08:00 PM
+
+Nếu chưa check-in:
+
+Bạn chưa hoàn thành thử thách hôm nay.
+Milestone
+
+Ngày:
+
+7
+14
+21
+
+Gửi:
+
+Chúc mừng!
+
+Bạn đã hoàn thành 1/3 hành trình.
+12. Success Metrics
+Completion Rate
+
+Mục tiêu:
+
+≥ 70%
+
+Daily Check-in Rate
+
+Mục tiêu:
+
+≥ 80%
+
+Reflection Rate
+
+Mục tiêu:
+
+≥ 60%
+
+User Satisfaction
+
+Mục tiêu:
+
+≥ 4.5/5
+
+13. Future Roadmap
+Phase 2
+Push Notification
+Streak Tracking
+Dashboard cho HR
+Phase 3
+Badge System
+Gamification
+AI Coach
+Team Challenge
+Multiple Learning Programs
+Important Design Decisions
+Giữ
+
+✅ Daily Check-in
+
+✅ Reflection
+
+✅ Progress Tracking
+
+✅ Mobile First
+
+✅ Google Sheet Backend
+
+✅ Leaderboard
+
+✅ Ranking
+
+✅ Huy hiệu phức tạp
+Loại bỏ
+
+
+
+❌ Looker Studio
+
+❌ Workshop Evaluation trước Challenge
+
+UX Principle
+
+Người dùng mở app dưới 3 phút/ngày.
+
+Mọi thao tác hoàn thành trong tối đa 3 lần chạm (3 taps).

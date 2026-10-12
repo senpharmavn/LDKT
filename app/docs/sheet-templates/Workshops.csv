@@ -1,0 +1,8 @@
+WorkshopID,Title,Description,Order,Status
+WS1,Workshop 1,Nền tảng tư duy và nhận thức ban đầu,1,done
+WS2,Workshop 2,Hiểu bản thân và nhận diện thói quen phản ứng,2,done
+WS3,Workshop 3,Đọc sách nâng cao và tìm Insight,3,now
+WS4,Workshop 4,Mục đích sống,4,locked
+WS5,Workshop 5,Chấp nhận bản thân,5,locked
+WS6,Workshop 6,Đồng cảm sâu thật,6,locked
+WS7,Workshop 7,Mở rộng tâm lượng,7,locked

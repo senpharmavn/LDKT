@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lãnh Đạo Khai Tâm - Học viên Report</title>
+    <meta name="description" content="Báo cáo đánh giá lãnh đạo cá nhân dành cho học viên chương trình Lãnh Đạo Khai Tâm." />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:site_name" content="Lãnh Đạo Khai Tâm" />
+    <meta property="og:title" content="Lãnh Đạo Khai Tâm - Học viên Report" />
+    <meta property="og:description" content="Báo cáo đánh giá lãnh đạo cá nhân dành cho học viên chương trình Lãnh Đạo Khai Tâm." />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Lãnh Đạo Khai Tâm - Học viên Report" />
+    <meta name="twitter:description" content="Báo cáo đánh giá lãnh đạo cá nhân dành cho học viên chương trình Lãnh Đạo Khai Tâm." />
+    <style>
+      :root { color-scheme: light; font-family: Arial, sans-serif; }
+      body { align-items: center; background: #f2f7f5; color: #173c38; display: flex; justify-content: center; margin: 0; min-height: 100vh; }
+      main { background: #fff; border: 1px solid #d8e7e2; border-radius: 16px; box-shadow: 0 14px 40px rgba(22, 82, 75, .1); max-width: 440px; padding: 36px; text-align: center; width: calc(100% - 56px); }
+      .mark { align-items: center; background: #e0f2ed; border-radius: 50%; color: #11877e; display: inline-flex; font-size: 28px; font-weight: 800; height: 64px; justify-content: center; width: 64px; }
+      h1 { font-size: 24px; margin: 20px 0 10px; }
+      p { color: #617570; line-height: 1.6; margin: 0; }
+      a { background: #11877e; border-radius: 9px; color: #fff; display: none; font-weight: 700; margin-top: 24px; padding: 12px 18px; text-decoration: none; }
+      .error a { display: none; }
+      .ready a { display: inline-block; }
+    </style>
+  </head>
+  <body>
+    <main id="card">
+      <div class="mark">LD</div>
+      <h1>Lãnh Đạo Khai Tâm</h1>
+      <p id="message">Đang mở báo cáo học viên…</p>
+      <a id="continue" href="#">Mở báo cáo</a>
+    </main>
+    <script>
+      (function () {
+        var pathMatch = window.location.pathname.match(/^\/r\/([A-Za-z0-9_-]+)\/?$/);
+        var queryId = new URLSearchParams(window.location.search).get("report");
+        var studentId = pathMatch ? pathMatch[1] : queryId;
+        var card = document.getElementById("card");
+        var message = document.getElementById("message");
+        var link = document.getElementById("continue");
+
+        if (!studentId || !/^[A-Za-z0-9_-]+$/.test(studentId)) {
+          card.className = "error";
+          message.textContent = "Link báo cáo chưa có mã học viên hợp lệ.";
+          return;
+        }
+
+        var destination = "https://ldkt-instructor-dashboard.vercel.app/?report=" + encodeURIComponent(studentId);
+        link.href = destination;
+        card.className = "ready";
+        window.setTimeout(function () { window.location.replace(destination); }, 500);
+      }());
+    </script>
+  </body>
+</html>

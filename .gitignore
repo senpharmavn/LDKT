@@ -1,0 +1,35 @@
+# Local credentials and deployment state
+.env
+.env.*
+!**/.env.example
+.vercel/
+.vercel-auth/
+
+# Dependencies and build artifacts
+**/node_modules/
+**/.next/
+**/out/
+**/build/
+**/coverage/
+**/*.tsbuildinfo
+
+# Runtime logs and temporary output
+*.log
+outputs/
+tmp/
+
+# Local IDE / OS files
+.DS_Store
+Thumbs.db
+
+# Non-source exports and participant reports stored at workspace root
+/*.xlsx
+/*.docx
+/*.pdf
+/*.png
+/*.svg
+
+# Generated reports can contain participant information
+/app/public/reports/
+/instructor-dashboard-prototype/public/reports/
+
